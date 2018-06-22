@@ -28,5 +28,35 @@ export const robros = [
     name: "Anton",
     alias: "neutral",
     email: "sweed@snus.com"
+  },
+  {
+    id: 6,
+    name: "marq5",
+    alias: "AI",
+    email: "AI@AI.com"
+  },
+  {
+    id: 7,
+    name: "tron",
+    alias: "Tron",
+    email: "tron@AI.com"
+  },
+  {
+    id: 8,
+    name: "Bill",
+    alias: "Billius",
+    email: "Bill@AI.com"
+  },
+  {
+    id: 9,
+    name: "vine",
+    alias: "viner",
+    email: "vine@AI.com"
+  },
+  {
+    id: 10,
+    name: "colone",
+    alias: "snake",
+    email: "mgs@AI.com"
   }
 ];
