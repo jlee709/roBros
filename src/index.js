@@ -5,7 +5,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import "tachyons";
 
 import { robros } from "./robros";
-import CardList from "./CardList";
+import App from "./App";
 
-ReactDOM.render(<CardList robros={robros} />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 registerServiceWorker();
