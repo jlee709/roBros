@@ -49,14 +49,26 @@ export const robros = [
   },
   {
     id: 9,
-    name: "vine",
-    alias: "viner",
-    email: "vine@AI.com"
+    name: "lee",
+    alias: "lee",
+    email: "lee@AI.com"
   },
   {
     id: 10,
     name: "colone",
     alias: "snake",
     email: "mgs@AI.com"
+  },
+  {
+    id: 11,
+    name: "Wayne",
+    alias: "Wayne",
+    email: "wayne@AI.com"
+  },
+  {
+    id: 12,
+    name: "jong",
+    alias: "jong",
+    email: "jong@AI.com"
   }
 ];
