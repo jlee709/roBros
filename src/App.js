@@ -1,16 +1,26 @@
 import React, { Component } from "react";
 import CardList from "./CardList";
 import SearchBar from "./SearchBar";
-import { robros } from "./robros";
+// import { robros } from "./robros";
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      robros: robros,
+      robros: [],
       searchfield: ""
     };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(response => {
+        return response.json();
+      })
+      .then(users => {
+        this.setState({ robros: users });
+      });
   }
 
   onSearchChange = e => {
@@ -24,8 +34,8 @@ class App extends Component {
         .includes(this.state.searchfield.toLowerCase());
     });
     return (
-      <div>
-        <h1 className="tc">Robros!</h1>
+      <div className="tc">
+        <h1 className="f1">Robros!</h1>
         <SearchBar searchChange={this.onSearchChange} />
         <CardList robros={filteredRobros} />;
       </div>
