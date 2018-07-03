@@ -28,10 +28,9 @@ class App extends Component {
   };
 
   render() {
-    const filteredRobros = this.state.robros.filter(robros => {
-      return robros.name
-        .toLowerCase()
-        .includes(this.state.searchfield.toLowerCase());
+    const { searchfield, robros } = this.state;
+    const filteredRobros = robros.filter(robros => {
+      return robros.name.toLowerCase().includes(searchfield.toLowerCase());
     });
     return (
       <div className="tc">
