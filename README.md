@@ -4,4 +4,4 @@ Test it out by cloning the repo to a directory and then run:
 
 npm start
 
-Enjoy the roBros!
+robros uses react and tachyeons for the css elements.
