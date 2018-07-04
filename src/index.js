@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { createLogger } from "redux-logger";
 import "./index.css";
 import registerServiceWorker from "./registerServiceWorker";
 import "tachyons";
@@ -10,7 +11,8 @@ import { searchRobros } from "./reducers/searchRobros.js";
 import App from "./containers/App";
 import "./containers/App.css";
 
-const store = createStore(searchRobros);
+const logger = createLogger();
+const store = createStore(searchRobros, applyMiddleware(logger));
 
 ReactDOM.render(
   <Provider store={store}>
