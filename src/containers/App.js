@@ -4,42 +4,39 @@ import CardList from "../components/CardList";
 import SearchBar from "../components/SearchBar";
 import Scroll from "../components/Scroll";
 
-import { setSearchField } from "../actions/actions";
+import { setSearchField, requestRobros } from "../actions/actions";
 
 const mapStateToProps = state => {
   return {
-    searchfield: state.searchfield
+    searchfield: state.searchRobros.searchfield,
+    robros: state.requestRobros.robros,
+    isPending: state.requestRobros.isPending,
+    error: state.requestRobros.error
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchChange: event => dispatch(setSearchField(event.target.value))
+    onSearchChange: event => dispatch(setSearchField(event.target.value)),
+    onRequestRobros: () => dispatch(requestRobros())
   };
 };
 
 class App extends Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      robros: []
-    };
-  }
+  //   this.state = {
+  //     robros: []
+  //   };
+  // }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(response => {
-        return response.json();
-      })
-      .then(users => {
-        this.setState({ robros: users });
-      });
+    this.props.onRequestRobros();
   }
 
   render() {
-    const { robros } = this.state;
-    const { onSearchChange, searchfield } = this.props;
+    const { onSearchChange, searchfield, robros } = this.props;
     const filteredRobros = robros.filter(robros => {
       return robros.name.toLowerCase().includes(searchfield.toLowerCase());
     });
