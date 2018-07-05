@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { setSearchField, requestRobros } from "../actions/actions";
+
 import CardList from "../components/CardList";
 import SearchBar from "../components/SearchBar";
 import Scroll from "../components/Scroll";
-
-import { setSearchField, requestRobros } from "../actions/actions";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 const mapStateToProps = state => {
   return {
@@ -23,20 +24,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 class App extends Component {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     robros: []
-  //   };
-  // }
-
   componentDidMount() {
     this.props.onRequestRobros();
   }
 
   render() {
-    const { onSearchChange, searchfield, robros } = this.props;
+    const { onSearchChange, searchfield, robros, isPending } = this.props;
     const filteredRobros = robros.filter(robros => {
       return robros.name.toLowerCase().includes(searchfield.toLowerCase());
     });
@@ -45,7 +38,13 @@ class App extends Component {
         <h1 className="f1">Robros!</h1>
         <SearchBar searchChange={onSearchChange} />
         <Scroll>
-          <CardList robros={filteredRobros} />;
+          {isPending ? (
+            <h1>Loading</h1>
+          ) : (
+            <ErrorBoundry>
+              <CardList robros={filteredRobros} />
+            </ErrorBoundry>
+          )}
         </Scroll>
       </div>
     );
