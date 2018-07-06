@@ -32,7 +32,7 @@ export const requestRobros = (state = initialStateRobros, action = {}) => {
 
     case REQUEST_ROBROS_SUCCESS:
       return Object.assign({}, state, {
-        roBros: action.payload,
+        robros: action.payload,
         isPending: false
       });
 
