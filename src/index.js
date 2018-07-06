@@ -15,10 +15,7 @@ import "./containers/App.css";
 const logger = createLogger();
 
 const rootReducer = combineReducers({ searchRobros, requestRobros });
-const store = createStore(
-  rootReducer,
-  applyMiddleware(thunkMiddleware, logger)
-);
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
   <Provider store={store}>

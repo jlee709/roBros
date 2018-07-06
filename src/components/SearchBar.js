@@ -1,6 +1,7 @@
 import React from "react";
 
 const SearchBar = ({ searchfield, searchChange }) => {
+  console.log("SearchBar");
   return (
     <div className="tc">
       <input
