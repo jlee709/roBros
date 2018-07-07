@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CounterButton from "./CounterButton";
 
+// repvents addional re-reners for DOM optimizations
 class Header extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     return false;

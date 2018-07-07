@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
+//maping each elm for prop pass
 const CardList = ({ robros }) => {
   const cardArray = robros.map((user, i) => {
     return (
