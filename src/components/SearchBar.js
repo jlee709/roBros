@@ -5,6 +5,7 @@ const SearchBar = ({ searchfield, searchChange }) => {
   return (
     <div className="tc">
       <input
+        aria-label="Search Robros"
         className="pa3 ba b--green bg-lightest-blue"
         type="search"
         placeholder="search for robros!"
