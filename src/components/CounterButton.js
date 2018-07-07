@@ -8,9 +8,11 @@ class CounterButton extends Component {
     };
   }
 
+  // This component is for optimized render
   shouldComponentUpdate(nextProps, nextState) {
     if (this.state.count !== nextState.count) {
       return true;
+      s;
     }
     return false;
   }

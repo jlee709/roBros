@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+// Error bounday is wrapping the UI element in the event of failed render
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
