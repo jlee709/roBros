@@ -1,0 +1,12 @@
+@font-face {
+  font-display: swap;
+  font-family: "SpacePatrol";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SpacePatrol"), url("../containers/SPACP___.woff") format("woff");
+}
+
+h1 {
+  font-family: "SpacePatrol";
+  color: #05ec37;
+}
