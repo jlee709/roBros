@@ -1,12 +1,20 @@
 import { shallow } from "enzyme";
 import React from "react";
-import AppM from "./AppM";
+import App from "../containers/App";
 import MainPage from "./MainPage";
 
-it("expects App Container to render", () => {
-  const mockStore = {
+let wrapper;
+
+beforeEach(() => {
+  const mockProps = {
+    onRequestRobros: jest.fn(),
     robros: [],
-    searchfield: ""
+    searchfield: "",
+    isPending: false
   };
-  expect(shallow(<MainPage sotre={mockStore} />)).toMatchSnapshot();
+  wrapper = shallow(<MainPage {...mockProps} />);
+});
+
+it("renders The Main Page", () => {
+  expect(wrapper).toMatchSnapshot();
 });

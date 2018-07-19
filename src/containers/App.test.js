@@ -7,5 +7,5 @@ it("expects App Container to render", () => {
     robros: [],
     searchfield: ""
   };
-  expect(shallow(<App sotre={mockStore} />)).toMatchSnapshot();
+  expect(shallow(<App store={mockStore} />)).toMatchSnapshot();
 });
