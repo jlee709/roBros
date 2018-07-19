@@ -20,5 +20,25 @@ it("Renders The Main Page, no crash", () => {
 });
 
 it("filters the robros", () => {
-  expect(wrapper.instance().filteredRobros([])).toEqual([]);
+  const mockProps2 = {
+    onRequestRobros: jest.fn(),
+    robros: [
+      {
+        id: 7,
+        name: "John Wick",
+        email: "withapencil@gmail.com "
+      }
+    ],
+    searchfield: "John Wick",
+    isPending: false
+  };
+  const wrapper2 = shallow(<MainPage {...mockProps2} />);
+
+  expect(wrapper2.instance().filteredRobros()).toEqual([
+    {
+      id: 7,
+      name: "John Wick",
+      email: "withapencil@gmail.com "
+    }
+  ]);
 });
