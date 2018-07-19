@@ -14,11 +14,15 @@ class MainPage extends Component {
     this.props.onRequestRobros();
   }
 
-  render() {
-    const { onSearchChange, searchfield, robros, isPending } = this.props;
-    const filteredRobros = robros.filter(robros => {
+  filteredRobros = robros => {
+    return robros.filter(robros => {
       return robros.name.toLowerCase().includes(searchfield.toLowerCase());
     });
+  };
+
+  render() {
+    const { onSearchChange, searchfield, robros, isPending } = this.props;
+
     return (
       <div className="tc">
         <Header />
@@ -28,7 +32,7 @@ class MainPage extends Component {
             <h1>Loading</h1>
           ) : (
             <ErrorBoundry>
-              <CardList robros={filteredRobros} />
+              <CardList robros={this.filteredRobros(robros)} />
             </ErrorBoundry>
           )}
         </Scroll>
