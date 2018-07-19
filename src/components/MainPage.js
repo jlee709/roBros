@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { setSearchField, requestRobros } from "../actions/actions";
 
 import CardList from "../components/CardList";
 import SearchBar from "../components/SearchBar";
@@ -14,11 +13,17 @@ class MainPage extends Component {
     this.props.onRequestRobros();
   }
 
-  render() {
-    const { onSearchChange, searchfield, robros, isPending } = this.props;
-    const filteredRobros = robros.filter(robros => {
-      return robros.name.toLowerCase().includes(searchfield.toLowerCase());
+  filteredRobros = () => {
+    return this.props.robros.filter(robros => {
+      return robros.name
+        .toLowerCase()
+        .includes(this.props.searchfield.toLowerCase());
     });
+  };
+
+  render() {
+    const { onSearchChange, isPending } = this.props;
+
     return (
       <div className="tc">
         <Header />
@@ -28,7 +33,7 @@ class MainPage extends Component {
             <h1>Loading</h1>
           ) : (
             <ErrorBoundry>
-              <CardList robros={filteredRobros} />
+              <CardList robros={this.filteredRobros()} />
             </ErrorBoundry>
           )}
         </Scroll>
