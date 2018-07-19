@@ -18,3 +18,7 @@ beforeEach(() => {
 it("Renders The Main Page, no crash", () => {
   expect(wrapper).toMatchSnapshot();
 });
+
+it("filters the robros", () => {
+  expect(wrapper.instance().filteredRobros([])).toEqual([]);
+});
