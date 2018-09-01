@@ -20,6 +20,7 @@ class MainPage extends Component {
         .includes(this.props.searchfield.toLowerCase());
     });
   };
+  // Error boundary to isolate component
 
   render() {
     const { onSearchChange, isPending } = this.props;
