@@ -5,6 +5,7 @@ import Card from "./Card";
 const CardList = ({ robros }) => {
   const cardArray = robros.map((user, i) => {
     return (
+      // listing cards
       <Card
         key={i}
         id={robros[i].id}
